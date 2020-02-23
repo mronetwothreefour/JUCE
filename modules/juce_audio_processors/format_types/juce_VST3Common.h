@@ -488,6 +488,13 @@ public:
                                          e.sampleOffset);
                         break;
 
+                    // Begin unofficial code for supporting LegacyMIDICCOutEvent
+                    case Steinberg::Vst::Event::kLegacyMIDICCOutEvent:
+                        result.addEvent(MidiMessage::controllerEvent(e.midiCCOut.channel, e.midiCCOut.controlNumber, e.midiCCOut.value),
+                            e.sampleOffset);
+                        break;
+                    // End unofficial code for supporting LegacyMIDICCOutEvent
+
                     default:
                         break;
                 }
@@ -571,6 +578,16 @@ public:
                 e.polyPressure.pitch     = createSafeNote (msg.getNoteNumber());
                 e.polyPressure.pressure  = normaliseMidiValue (msg.getChannelPressureValue());
             }
+            // Begin unofficial code for supporting LegacyMIDICCOutEvent
+            else if (msg.isController())
+            {
+                e.type = Steinberg::Vst::Event::kLegacyMIDICCOutEvent;
+                e.midiCCOut.channel = (Steinberg::int8) msg.getChannel();
+                e.midiCCOut.controlNumber = (Steinberg::uint8) msg.getControllerNumber();
+                e.midiCCOut.value = (Steinberg::int8) msg.getControllerValue();
+                e.midiCCOut.value2 = 0;
+            }
+            // End unofficial code for supporting LegacyMIDICCOutEvent
             else
             {
                 continue;
