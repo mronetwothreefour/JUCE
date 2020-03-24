@@ -86,7 +86,9 @@ struct ItemComponent  : public Component
 
         updateShortcutKeyDescription();
 
-        int itemW = 80;
+        // Begin unofficial code for matching the width of popup menu items to the width of the parent menu
+        int itemW = parent.getWidth();
+        // End unofficial code for matching the width of popup menu items to the width of the parent menu
         int itemH = 16;
         getIdealSize (itemW, itemH, standardItemHeight);
         setSize (itemW, jlimit (1, 600, itemH));
