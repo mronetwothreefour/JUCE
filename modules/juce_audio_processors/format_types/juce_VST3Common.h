@@ -564,6 +564,8 @@ public:
                 e.noteOff.tuning    = 0.0f;
                 e.noteOff.noteId    = -1;
             }
+            /*
+            // official code adds SysEx events without F0/F7 wrapper bytes
             else if (msg.isSysEx())
             {
                 e.type          = Steinberg::Vst::Event::kDataEvent;
@@ -571,6 +573,16 @@ public:
                 e.data.size     = (uint32) msg.getSysExDataSize();
                 e.data.type     = Steinberg::Vst::DataEvent::kMidiSysEx;
             }
+            */
+            // begin custom code for adding SysEx events with F0/F7 wrapper bytes intact
+            else if (msg.isSysEx())
+            {
+                e.type          = Steinberg::Vst::Event::kDataEvent;
+                e.data.bytes    = midiEventData;
+                e.data.size     = msg.getRawDataSize();
+                e.data.type     = Steinberg::Vst::DataEvent::kMidiSysEx;
+            }
+            // end custom code for adding SysEx events with F0/F7 wrapper bytes intact
             else if (msg.isChannelPressure())
             {
                 e.type                   = Steinberg::Vst::Event::kPolyPressureEvent;
@@ -578,16 +590,27 @@ public:
                 e.polyPressure.pitch     = createSafeNote (msg.getNoteNumber());
                 e.polyPressure.pressure  = normaliseMidiValue (msg.getChannelPressureValue());
             }
-            // Begin unofficial code for supporting LegacyMIDICCOutEvent
+            // Begin custom code for adding controller events as kDataEvents
             else if (msg.isController())
             {
-                e.type = Steinberg::Vst::Event::kLegacyMIDICCOutEvent;
-                e.midiCCOut.channel = (Steinberg::int8) msg.getChannel();
-                e.midiCCOut.controlNumber = (Steinberg::uint8) msg.getControllerNumber();
-                e.midiCCOut.value = (Steinberg::int8) msg.getControllerValue();
-                e.midiCCOut.value2 = 0;
+                e.type = Steinberg::Vst::Event::kDataEvent;
+                e.data.bytes = midiEventData;
+                e.data.size = msg.getRawDataSize();
+                e.data.type = Steinberg::Vst::DataEvent::kMidiSysEx;
             }
-            // End unofficial code for supporting LegacyMIDICCOutEvent
+            //End custom code for adding controller events as kDataEvents
+            /*
+            // Begin custom code for adding controller events as LegacyMIDICCOutEvents
+            else if (msg.isController())
+            {
+                e.type = steinberg::vst::event::klegacymidiccoutevent;
+                e.midiccout.channel = (steinberg::int8) msg.getchannel();
+                e.midiccout.controlnumber = (steinberg::uint8) msg.getcontrollernumber();
+                e.midiccout.value = (steinberg::int8) msg.getcontrollervalue();
+                e.midiccout.value2 = 0;
+            }
+             //End custom code for adding controller events as LegacyMIDICCOutEvents
+             */
             else
             {
                 continue;
