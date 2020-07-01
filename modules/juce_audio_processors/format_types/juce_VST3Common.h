@@ -545,8 +545,10 @@ private:
     {
         Steinberg::Vst::Event e{};
         e.type          = Steinberg::Vst::Event::kDataEvent;
-        e.data.bytes    = midiEventData + 1;
-        e.data.size     = (uint32) msg.getSysExDataSize();
+        // Juce strips off F0 and F7 bytes, expecting the host to add them back on; 
+        // not all hosts do this, so I changed the code to leave them on
+        e.data.bytes    = midiEventData/* + 1*/; 
+        e.data.size     = (uint32) /*msg.getSysExDataSize()*/msg.getRawDataSize();
         e.data.type     = Steinberg::Vst::DataEvent::kMidiSysEx;
         return e;
     }
