@@ -544,11 +544,14 @@ private:
     static Steinberg::Vst::Event createSysExEvent (const MidiMessage& msg, const uint8* midiEventData) noexcept
     {
         Steinberg::Vst::Event e{};
-        e.type          = Steinberg::Vst::Event::kDataEvent;
-        // Juce strips off F0 and F7 bytes, expecting the host to add them back on; 
-        // not all hosts do this, so I changed the code to leave them on
-        e.data.bytes    = midiEventData/* + 1*/; 
-        e.data.size     = (uint32) /*msg.getSysExDataSize()*/msg.getRawDataSize();
+        e.type = Steinberg::Vst::Event::kDataEvent;
+        #if HOST_DOES_NOT_ADD_F0_AND_F7
+            e.data.bytes = midiEventData;
+            e.data.size = (uint32)msg.getRawDataSize();
+        #else
+            e.data.bytes = midiEventData + 1; 
+            e.data.size = (uint32)msg.getSysExDataSize();
+        #endif
         e.data.type     = Steinberg::Vst::DataEvent::kMidiSysEx;
         return e;
     }
