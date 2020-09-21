@@ -545,6 +545,8 @@ private:
     {
         Steinberg::Vst::Event e{};
         e.type = Steinberg::Vst::Event::kDataEvent;
+        // Begin unofficial code for deciding whether or not the plugin will remove
+        // the F0 and F7 wrapper bytes from outgoing system exclusive messages
         #if HOST_DOES_NOT_ADD_F0_AND_F7
             e.data.bytes = midiEventData;
             e.data.size = (uint32)msg.getRawDataSize();
@@ -552,6 +554,7 @@ private:
             e.data.bytes = midiEventData + 1; 
             e.data.size = (uint32)msg.getSysExDataSize();
         #endif
+        // End of unofficial code
         e.data.type     = Steinberg::Vst::DataEvent::kMidiSysEx;
         return e;
     }
