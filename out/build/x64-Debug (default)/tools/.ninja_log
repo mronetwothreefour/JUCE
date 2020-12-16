@@ -1,0 +1,10 @@
+# ninja log v5
+5	117	0	C:/Users/Public/git-repos/Juce/out/build/x64-Debug (default)/tools/CMakeFiles/cmake.verify_globs	744736c85216b4f1
+16	9144	629842790	extras/Build/juceaide/CMakeFiles/juceaide.dir/__/__/__/modules/juce_events/juce_events.cpp.obj	c41382d3efa5039d
+8	11099	629842792	extras/Build/juceaide/CMakeFiles/juceaide.dir/__/juce_build_tools/juce_build_tools.cpp.obj	7d74f54dead5671a
+12	11194	629842792	extras/Build/juceaide/CMakeFiles/juceaide.dir/Main.cpp.obj	fa998138fa6e2f61
+25	16256	629842797	extras/Build/juceaide/CMakeFiles/juceaide.dir/__/__/__/modules/juce_core/juce_core.cpp.obj	a30a2b20c268bee0
+21	16628	629842798	extras/Build/juceaide/CMakeFiles/juceaide.dir/__/__/__/modules/juce_graphics/juce_graphics.cpp.obj	de0153f2a07e8d34
+9149	18623	629842800	extras/Build/juceaide/CMakeFiles/juceaide.dir/__/__/__/modules/juce_data_structures/juce_data_structures.cpp.obj	4ed60573cd13bb17
+3	24385	629842805	extras/Build/juceaide/CMakeFiles/juceaide.dir/__/__/__/modules/juce_gui_basics/juce_gui_basics.cpp.obj	c4522cb9c749699c
+24551	28945	629842809	extras/Build/juceaide/juceaide_artefacts/Debug/juceaide.exe	10c60b2102b83234
