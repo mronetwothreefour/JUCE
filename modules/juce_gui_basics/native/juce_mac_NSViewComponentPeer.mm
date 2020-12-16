@@ -23,6 +23,11 @@
   ==============================================================================
 */
 
+@interface NSEvent (DeviceDelta)
+- (float)deviceDeltaX;
+- (float)deviceDeltaY;
+@end
+
 //==============================================================================
 #if defined (MAC_OS_X_VERSION_10_8) && (MAC_OS_X_VERSION_MIN_REQUIRED >= MAC_OS_X_VERSION_10_8) \
   && USE_COREGRAPHICS_RENDERING && JUCE_COREGRAPHICS_DRAW_ASYNC
@@ -680,8 +685,8 @@ public:
             }
             else if ([ev respondsToSelector: @selector (deviceDeltaX)])
             {
-                wheel.deltaX = checkDeviceDeltaReturnValue ((float) getMsgSendFPRetFn() (ev, @selector (deviceDeltaX)));
-                wheel.deltaY = checkDeviceDeltaReturnValue ((float) getMsgSendFPRetFn() (ev, @selector (deviceDeltaY)));
+                wheel.deltaX = checkDeviceDeltaReturnValue ([ev deviceDeltaX]);
+                wheel.deltaY = checkDeviceDeltaReturnValue ([ev deviceDeltaY]);
             }
         }
         @catch (...)
@@ -705,9 +710,10 @@ public:
             handleMagnifyGesture (MouseInputSource::InputSourceType::mouse, getMousePos (ev, view), getMouseTime (ev), 1.0f / invScale);
     }
 
-    void redirectCopy  (NSObject*) { handleKeyPress (KeyPress ('c', ModifierKeys (ModifierKeys::commandModifier), 'c')); }
-    void redirectPaste (NSObject*) { handleKeyPress (KeyPress ('v', ModifierKeys (ModifierKeys::commandModifier), 'v')); }
-    void redirectCut   (NSObject*) { handleKeyPress (KeyPress ('x', ModifierKeys (ModifierKeys::commandModifier), 'x')); }
+    void redirectCopy      (NSObject*) { handleKeyPress (KeyPress ('c', ModifierKeys (ModifierKeys::commandModifier), 'c')); }
+    void redirectPaste     (NSObject*) { handleKeyPress (KeyPress ('v', ModifierKeys (ModifierKeys::commandModifier), 'v')); }
+    void redirectCut       (NSObject*) { handleKeyPress (KeyPress ('x', ModifierKeys (ModifierKeys::commandModifier), 'x')); }
+    void redirectSelectAll (NSObject*) { handleKeyPress (KeyPress ('a', ModifierKeys (ModifierKeys::commandModifier), 'a')); }
 
     void redirectWillMoveToWindow (NSWindow* newWindow)
     {
@@ -1660,6 +1666,7 @@ struct JuceNSViewClass   : public ObjCClass<NSView>
         addMethod (@selector (paste:),                        paste,                      "v@:@");
         addMethod (@selector (copy:),                         copy,                       "v@:@");
         addMethod (@selector (cut:),                          cut,                        "v@:@");
+        addMethod (@selector (selectAll:),                    selectAll,                  "v@:@");
 
         addMethod (@selector (viewWillMoveToWindow:),         willMoveToWindow,           "v@:@");
 
@@ -1711,6 +1718,7 @@ private:
     static void copy             (id self, SEL, NSObject* s)   { if (auto* p = getOwner (self)) p->redirectCopy       (s);  }
     static void paste            (id self, SEL, NSObject* s)   { if (auto* p = getOwner (self)) p->redirectPaste      (s);  }
     static void cut              (id self, SEL, NSObject* s)   { if (auto* p = getOwner (self)) p->redirectCut        (s);  }
+    static void selectAll        (id self, SEL, NSObject* s)   { if (auto* p = getOwner (self)) p->redirectSelectAll  (s);  }
     static void willMoveToWindow (id self, SEL, NSWindow* w)   { if (auto* p = getOwner (self)) p->redirectWillMoveToWindow (w); }
 
     static BOOL acceptsFirstMouse (id, SEL, NSEvent*)          { return YES; }
@@ -1766,10 +1774,7 @@ private:
                 owner->stringBeingComposed.clear();
 
             if (! (owner->textWasInserted || owner->redirectKeyDown (ev)))
-            {
-                objc_super s = { self, [NSView class] };
-                getMsgSendSuperFn() (&s, @selector (keyDown:), ev);
-            }
+                sendSuperclassMessage<void> (self, @selector (keyDown:), ev);
         }
     }
 
@@ -1777,11 +1782,8 @@ private:
     {
         auto* owner = getOwner (self);
 
-        if (owner == nullptr || ! owner->redirectKeyUp (ev))
-        {
-            objc_super s = { self, [NSView class] };
-            getMsgSendSuperFn() (&s, @selector (keyUp:), ev);
-        }
+        if (! owner->redirectKeyUp (ev))
+            sendSuperclassMessage<void> (self, @selector (keyUp:), ev);
     }
 
     //==============================================================================
@@ -2031,7 +2033,7 @@ private:
 
     static void becomeKeyWindow (id self, SEL)
     {
-        sendSuperclassMessage (self, @selector (becomeKeyWindow));
+        sendSuperclassMessage<void> (self, @selector (becomeKeyWindow));
 
         if (auto* owner = getOwner (self))
         {
@@ -2053,10 +2055,15 @@ private:
         return owner == nullptr || owner->windowShouldClose();
     }
 
-    static NSRect constrainFrameRect (id self, SEL, NSRect frameRect, NSScreen*)
+    static NSRect constrainFrameRect (id self, SEL, NSRect frameRect, NSScreen* screen)
     {
         if (auto* owner = getOwner (self))
+        {
+            frameRect = sendSuperclassMessage<NSRect, NSRect, NSScreen*> (self, @selector (constrainFrameRect:toScreen:),
+                                                                          frameRect, screen);
+
             frameRect = owner->constrainRect (frameRect);
+        }
 
         return frameRect;
     }
@@ -2100,10 +2107,10 @@ private:
     {
         if (auto* owner = getOwner (self))
         {
-            owner->isZooming = true;
-            objc_super s = { self, [NSWindow class] };
-            getMsgSendSuperFn() (&s, @selector (zoom:), sender);
-            owner->isZooming = false;
+            {
+                const ScopedValueSetter<bool> svs (owner->isZooming, true);
+                sendSuperclassMessage<void> (self, @selector (zoom:), sender);
+            }
 
             owner->redirectMovedOrResized();
         }
@@ -2222,7 +2229,7 @@ void Desktop::setKioskComponent (Component* kioskComp, bool shouldBeEnabled, boo
             [NSApp setPresentationOptions: (allowMenusAndBars ? (NSApplicationPresentationAutoHideDock | NSApplicationPresentationAutoHideMenuBar)
                                                               : (NSApplicationPresentationHideDock | NSApplicationPresentationHideMenuBar))];
 
-            kioskComp->setBounds (getDisplays().findDisplayForRect (kioskComp->getScreenBounds()).totalArea);
+            kioskComp->setBounds (getDisplays().getDisplayForRect (kioskComp->getScreenBounds())->totalArea);
             peer->becomeKeyWindow();
         }
         else
