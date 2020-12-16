@@ -36,6 +36,9 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/JUCE-6.0.0" TYPE FILE FILES
     "C:/Users/Public/git-repos/Juce/out/build/x64-Debug (default)/JUCEConfigVersion.cmake"
     "C:/Users/Public/git-repos/Juce/out/build/x64-Debug (default)/JUCEConfig.cmake"
+    "C:/Users/Public/git-repos/Juce/extras/Build/CMake/JUCEHelperTargets.cmake"
+    "C:/Users/Public/git-repos/Juce/extras/Build/CMake/JUCECheckAtomic.cmake"
+    "C:/Users/Public/git-repos/Juce/extras/Build/CMake/JUCEUtils.cmake"
     "C:/Users/Public/git-repos/Juce/extras/Build/CMake/LaunchScreen.storyboard"
     "C:/Users/Public/git-repos/Juce/extras/Build/CMake/PIPAudioProcessor.cpp.in"
     "C:/Users/Public/git-repos/Juce/extras/Build/CMake/PIPComponent.cpp.in"
@@ -43,8 +46,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "C:/Users/Public/git-repos/Juce/extras/Build/CMake/RecentFilesMenuTemplate.nib"
     "C:/Users/Public/git-repos/Juce/extras/Build/CMake/UnityPluginGUIScript.cs.in"
     "C:/Users/Public/git-repos/Juce/extras/Build/CMake/copyDir.cmake"
-    "C:/Users/Public/git-repos/Juce/extras/Build/CMake/JUCEHelperTargets.cmake"
-    "C:/Users/Public/git-repos/Juce/extras/Build/CMake/JUCEUtils.cmake"
+    "C:/Users/Public/git-repos/Juce/extras/Build/CMake/juce_runtime_arch_detection.cpp"
     )
 endif()
 
