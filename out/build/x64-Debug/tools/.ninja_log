@@ -1,0 +1,10 @@
+# ninja log v5
+5	93	0	C:/Users/socl0/source/repos/mronetwothreefour/JUCE/out/build/x64-Debug/tools/CMakeFiles/cmake.verify_globs	ab566075179ca035
+25	5449	6580104543241119	extras/Build/juceaide/CMakeFiles/juceaide.dir/__/__/__/modules/juce_data_structures/juce_data_structures.cpp.obj	150b76dfe280b078
+12	8515	6580104574100399	extras/Build/juceaide/CMakeFiles/juceaide.dir/Main.cpp.obj	d670ebc1c6e1e845
+7	8587	6580104575059749	extras/Build/juceaide/CMakeFiles/juceaide.dir/__/juce_build_tools/juce_build_tools.cpp.obj	7ac836d599c68975
+21	20815	6580104696486389	extras/Build/juceaide/CMakeFiles/juceaide.dir/__/__/__/modules/juce_events/juce_events.cpp.obj	f7fbd63fccfd90e8
+16	27084	6580104759537391	extras/Build/juceaide/CMakeFiles/juceaide.dir/__/__/__/modules/juce_graphics/juce_graphics.cpp.obj	e19757907b42121b
+5454	30071	6580104789718724	extras/Build/juceaide/CMakeFiles/juceaide.dir/__/__/__/modules/juce_core/juce_core.cpp.obj	1f82c5e20ca244ab
+3	37573	6580104864732337	extras/Build/juceaide/CMakeFiles/juceaide.dir/__/__/__/modules/juce_gui_basics/juce_gui_basics.cpp.obj	fdf7b5c28ac0c20c
+37576	42540	6580104912670649	extras/Build/juceaide/juceaide_artefacts/Debug/juceaide.exe	2ce3fbd36385c28a
