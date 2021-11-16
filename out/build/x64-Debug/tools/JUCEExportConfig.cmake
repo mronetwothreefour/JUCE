@@ -52,10 +52,11 @@ endif()
 
 check_required_components("JUCE")
 
-set(JUCE_MODULES_DIR "C:/Users/socl0/source/repos/mronetwothreefour/JUCE/modules" CACHE INTERNAL
+set(JUCE_MODULES_DIR "C:/Users/Public/git-repos/JUCE/modules" CACHE INTERNAL
     "The path to JUCE modules")
 
-include("C:/Users/socl0/source/repos/mronetwothreefour/JUCE/extras/Build/CMake/JUCEUtils.cmake")
+include("C:/Users/Public/git-repos/JUCE/extras/Build/CMake/JUCEModuleSupport.cmake")
+include("C:/Users/Public/git-repos/JUCE/extras/Build/CMake/JUCEUtils.cmake")
 
 set(_juce_modules
     juce_analytics
@@ -65,7 +66,6 @@ set(_juce_modules
     juce_audio_plugin_client
     juce_audio_processors
     juce_audio_utils
-    juce_blocks_basics
     juce_box2d
     juce_core
     juce_cryptography
@@ -108,7 +108,7 @@ unset(_targets_defined)
 unset(_targets_expected)
 
 foreach(_juce_module IN LISTS _juce_modules)
-    juce_add_module("C:/Users/socl0/source/repos/mronetwothreefour/JUCE/modules/${_juce_module}" ALIAS_NAMESPACE juce)
+    juce_add_module("C:/Users/Public/git-repos/JUCE/modules/${_juce_module}" ALIAS_NAMESPACE juce)
 endforeach()
 
 unset(_juce_modules)

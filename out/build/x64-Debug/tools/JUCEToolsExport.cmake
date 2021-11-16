@@ -47,7 +47,7 @@ add_executable(juce_tools::juceaide IMPORTED)
 # Import target "juce_tools::juceaide" for configuration "Debug"
 set_property(TARGET juce_tools::juceaide APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
 set_target_properties(juce_tools::juceaide PROPERTIES
-  IMPORTED_LOCATION_DEBUG "C:/Users/socl0/source/repos/mronetwothreefour/JUCE/out/build/x64-Debug/tools/extras/Build/juceaide/juceaide_artefacts/Debug/juceaide.exe"
+  IMPORTED_LOCATION_DEBUG "C:/Users/Public/git-repos/JUCE/out/build/x64-Debug/tools/extras/Build/juceaide/juceaide_artefacts/Debug/juceaide.exe"
   )
 
 # This file does not depend on other imported targets which have

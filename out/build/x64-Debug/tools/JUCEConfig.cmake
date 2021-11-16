@@ -52,9 +52,10 @@ endif()
 
 check_required_components("JUCE")
 
-set(JUCE_MODULES_DIR "${PACKAGE_PREFIX_DIR}/include/JUCE-6.0.5/modules" CACHE INTERNAL
+set(JUCE_MODULES_DIR "${PACKAGE_PREFIX_DIR}/include/JUCE-6.1.2/modules" CACHE INTERNAL
     "The path to JUCE modules")
 
+include("${PACKAGE_PREFIX_DIR}/lib/cmake/JUCE-6.0.5/JUCEModuleSupport.cmake")
 include("${PACKAGE_PREFIX_DIR}/lib/cmake/JUCE-6.0.5/JUCEUtils.cmake")
 
 set(_juce_modules
@@ -65,7 +66,6 @@ set(_juce_modules
     juce_audio_plugin_client
     juce_audio_processors
     juce_audio_utils
-    juce_blocks_basics
     juce_box2d
     juce_core
     juce_cryptography
@@ -108,7 +108,7 @@ unset(_targets_defined)
 unset(_targets_expected)
 
 foreach(_juce_module IN LISTS _juce_modules)
-    juce_add_module("${PACKAGE_PREFIX_DIR}/include/JUCE-6.0.5/modules/${_juce_module}" ALIAS_NAMESPACE juce)
+    juce_add_module("${PACKAGE_PREFIX_DIR}/include/JUCE-6.1.2/modules/${_juce_module}" ALIAS_NAMESPACE juce)
 endforeach()
 
 unset(_juce_modules)

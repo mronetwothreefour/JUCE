@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/socl0/source/repos/mronetwothreefour/JUCE/extras/Build/juceaide
+# Install script for directory: C:/Users/Public/git-repos/JUCE/extras/Build/juceaide
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Users/socl0/Source/Repos/mronetwothreefour/JUCE/out/install/x64-Debug")
+  set(CMAKE_INSTALL_PREFIX "C:/Users/Public/git-repos/Juce/out/install/x64-Debug")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,6 +33,6 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin/JUCE-6.0.5" TYPE PROGRAM FILES "C:/Users/socl0/source/repos/mronetwothreefour/JUCE/out/build/x64-Debug/tools/extras/Build/juceaide/juceaide_artefacts/Debug/juceaide.exe")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin/JUCE-6.0.5" TYPE PROGRAM FILES "C:/Users/Public/git-repos/JUCE/out/build/x64-Debug/tools/extras/Build/juceaide/juceaide_artefacts/Debug/juceaide.exe")
 endif()
 

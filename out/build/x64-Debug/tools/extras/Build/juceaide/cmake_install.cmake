@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/socl0/source/repos/mronetwothreefour/JUCE/extras/Build/juceaide
+# Install script for directory: C:/Users/Public/git-repos/JUCE/extras/Build/juceaide
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Users/socl0/source/repos/mronetwothreefour/JUCE/out/install/x64-Debug")
+  set(CMAKE_INSTALL_PREFIX "C:/Users/Public/git-repos/JUCE/out/install/x64-Debug")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
