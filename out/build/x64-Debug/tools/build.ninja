@@ -231,7 +231,7 @@ build cmake_object_order_depends_target_juceaide: phony || extras\Build\juceaide
 
 build extras\Build\juceaide\CMakeFiles\juceaide.dir\Main.cpp.obj: CXX_COMPILER__juceaide_Debug ..\..\..\..\extras\Build\juceaide\Main.cpp || cmake_object_order_depends_target_juceaide
   DEFINES = -DDEBUG=1 -DJUCE_DISABLE_JUCE_VERSION_PRINTING=1 -DJUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1 -DJUCE_MODULE_AVAILABLE_juce_build_tools=1 -DJUCE_MODULE_AVAILABLE_juce_core=1 -DJUCE_MODULE_AVAILABLE_juce_data_structures=1 -DJUCE_MODULE_AVAILABLE_juce_events=1 -DJUCE_MODULE_AVAILABLE_juce_graphics=1 -DJUCE_MODULE_AVAILABLE_juce_gui_basics=1 -DJUCE_STANDALONE_APPLICATION=1 -DJUCE_USE_CURL=0 -D_CONSOLE=1 -D_DEBUG=1
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -MTd /bigobj /Od /MP /EHsc /W4
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -MTd /bigobj /Od /Zi /MP /EHsc /W4
   INCLUDES = -Iextras\Build\juceaide\juceaide_artefacts\JuceLibraryCode -I..\..\..\..\extras\Build -I..\..\..\..\modules
   OBJECT_DIR = extras\Build\juceaide\CMakeFiles\juceaide.dir
   OBJECT_FILE_DIR = extras\Build\juceaide\CMakeFiles\juceaide.dir
@@ -240,7 +240,7 @@ build extras\Build\juceaide\CMakeFiles\juceaide.dir\Main.cpp.obj: CXX_COMPILER__
 
 build extras\Build\juceaide\CMakeFiles\juceaide.dir\__\juce_build_tools\juce_build_tools.cpp.obj: CXX_COMPILER__juceaide_Debug ..\..\..\..\extras\Build\juce_build_tools\juce_build_tools.cpp || cmake_object_order_depends_target_juceaide
   DEFINES = -DDEBUG=1 -DJUCE_DISABLE_JUCE_VERSION_PRINTING=1 -DJUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1 -DJUCE_MODULE_AVAILABLE_juce_build_tools=1 -DJUCE_MODULE_AVAILABLE_juce_core=1 -DJUCE_MODULE_AVAILABLE_juce_data_structures=1 -DJUCE_MODULE_AVAILABLE_juce_events=1 -DJUCE_MODULE_AVAILABLE_juce_graphics=1 -DJUCE_MODULE_AVAILABLE_juce_gui_basics=1 -DJUCE_STANDALONE_APPLICATION=1 -DJUCE_USE_CURL=0 -D_CONSOLE=1 -D_DEBUG=1
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -MTd /bigobj /Od /MP /EHsc /W4
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -MTd /bigobj /Od /Zi /MP /EHsc /W4
   INCLUDES = -Iextras\Build\juceaide\juceaide_artefacts\JuceLibraryCode -I..\..\..\..\extras\Build -I..\..\..\..\modules
   OBJECT_DIR = extras\Build\juceaide\CMakeFiles\juceaide.dir
   OBJECT_FILE_DIR = extras\Build\juceaide\CMakeFiles\juceaide.dir\__\juce_build_tools
@@ -249,7 +249,7 @@ build extras\Build\juceaide\CMakeFiles\juceaide.dir\__\juce_build_tools\juce_bui
 
 build extras\Build\juceaide\CMakeFiles\juceaide.dir\__\__\__\modules\juce_gui_basics\juce_gui_basics.cpp.obj: CXX_COMPILER__juceaide_Debug ..\..\..\..\modules\juce_gui_basics\juce_gui_basics.cpp || cmake_object_order_depends_target_juceaide
   DEFINES = -DDEBUG=1 -DJUCE_DISABLE_JUCE_VERSION_PRINTING=1 -DJUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1 -DJUCE_MODULE_AVAILABLE_juce_build_tools=1 -DJUCE_MODULE_AVAILABLE_juce_core=1 -DJUCE_MODULE_AVAILABLE_juce_data_structures=1 -DJUCE_MODULE_AVAILABLE_juce_events=1 -DJUCE_MODULE_AVAILABLE_juce_graphics=1 -DJUCE_MODULE_AVAILABLE_juce_gui_basics=1 -DJUCE_STANDALONE_APPLICATION=1 -DJUCE_USE_CURL=0 -D_CONSOLE=1 -D_DEBUG=1
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -MTd /bigobj /Od /MP /EHsc /W4
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -MTd /bigobj /Od /Zi /MP /EHsc /W4
   INCLUDES = -Iextras\Build\juceaide\juceaide_artefacts\JuceLibraryCode -I..\..\..\..\extras\Build -I..\..\..\..\modules
   OBJECT_DIR = extras\Build\juceaide\CMakeFiles\juceaide.dir
   OBJECT_FILE_DIR = extras\Build\juceaide\CMakeFiles\juceaide.dir\__\__\__\modules\juce_gui_basics
@@ -258,7 +258,7 @@ build extras\Build\juceaide\CMakeFiles\juceaide.dir\__\__\__\modules\juce_gui_ba
 
 build extras\Build\juceaide\CMakeFiles\juceaide.dir\__\__\__\modules\juce_graphics\juce_graphics.cpp.obj: CXX_COMPILER__juceaide_Debug ..\..\..\..\modules\juce_graphics\juce_graphics.cpp || cmake_object_order_depends_target_juceaide
   DEFINES = -DDEBUG=1 -DJUCE_DISABLE_JUCE_VERSION_PRINTING=1 -DJUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1 -DJUCE_MODULE_AVAILABLE_juce_build_tools=1 -DJUCE_MODULE_AVAILABLE_juce_core=1 -DJUCE_MODULE_AVAILABLE_juce_data_structures=1 -DJUCE_MODULE_AVAILABLE_juce_events=1 -DJUCE_MODULE_AVAILABLE_juce_graphics=1 -DJUCE_MODULE_AVAILABLE_juce_gui_basics=1 -DJUCE_STANDALONE_APPLICATION=1 -DJUCE_USE_CURL=0 -D_CONSOLE=1 -D_DEBUG=1
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -MTd /bigobj /Od /MP /EHsc /W4
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -MTd /bigobj /Od /Zi /MP /EHsc /W4
   INCLUDES = -Iextras\Build\juceaide\juceaide_artefacts\JuceLibraryCode -I..\..\..\..\extras\Build -I..\..\..\..\modules
   OBJECT_DIR = extras\Build\juceaide\CMakeFiles\juceaide.dir
   OBJECT_FILE_DIR = extras\Build\juceaide\CMakeFiles\juceaide.dir\__\__\__\modules\juce_graphics
@@ -267,7 +267,7 @@ build extras\Build\juceaide\CMakeFiles\juceaide.dir\__\__\__\modules\juce_graphi
 
 build extras\Build\juceaide\CMakeFiles\juceaide.dir\__\__\__\modules\juce_events\juce_events.cpp.obj: CXX_COMPILER__juceaide_Debug ..\..\..\..\modules\juce_events\juce_events.cpp || cmake_object_order_depends_target_juceaide
   DEFINES = -DDEBUG=1 -DJUCE_DISABLE_JUCE_VERSION_PRINTING=1 -DJUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1 -DJUCE_MODULE_AVAILABLE_juce_build_tools=1 -DJUCE_MODULE_AVAILABLE_juce_core=1 -DJUCE_MODULE_AVAILABLE_juce_data_structures=1 -DJUCE_MODULE_AVAILABLE_juce_events=1 -DJUCE_MODULE_AVAILABLE_juce_graphics=1 -DJUCE_MODULE_AVAILABLE_juce_gui_basics=1 -DJUCE_STANDALONE_APPLICATION=1 -DJUCE_USE_CURL=0 -D_CONSOLE=1 -D_DEBUG=1
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -MTd /bigobj /Od /MP /EHsc /W4
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -MTd /bigobj /Od /Zi /MP /EHsc /W4
   INCLUDES = -Iextras\Build\juceaide\juceaide_artefacts\JuceLibraryCode -I..\..\..\..\extras\Build -I..\..\..\..\modules
   OBJECT_DIR = extras\Build\juceaide\CMakeFiles\juceaide.dir
   OBJECT_FILE_DIR = extras\Build\juceaide\CMakeFiles\juceaide.dir\__\__\__\modules\juce_events
@@ -276,7 +276,7 @@ build extras\Build\juceaide\CMakeFiles\juceaide.dir\__\__\__\modules\juce_events
 
 build extras\Build\juceaide\CMakeFiles\juceaide.dir\__\__\__\modules\juce_core\juce_core.cpp.obj: CXX_COMPILER__juceaide_Debug ..\..\..\..\modules\juce_core\juce_core.cpp || cmake_object_order_depends_target_juceaide
   DEFINES = -DDEBUG=1 -DJUCE_DISABLE_JUCE_VERSION_PRINTING=1 -DJUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1 -DJUCE_MODULE_AVAILABLE_juce_build_tools=1 -DJUCE_MODULE_AVAILABLE_juce_core=1 -DJUCE_MODULE_AVAILABLE_juce_data_structures=1 -DJUCE_MODULE_AVAILABLE_juce_events=1 -DJUCE_MODULE_AVAILABLE_juce_graphics=1 -DJUCE_MODULE_AVAILABLE_juce_gui_basics=1 -DJUCE_STANDALONE_APPLICATION=1 -DJUCE_USE_CURL=0 -D_CONSOLE=1 -D_DEBUG=1
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -MTd /bigobj /Od /MP /EHsc /W4
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -MTd /bigobj /Od /Zi /MP /EHsc /W4
   INCLUDES = -Iextras\Build\juceaide\juceaide_artefacts\JuceLibraryCode -I..\..\..\..\extras\Build -I..\..\..\..\modules
   OBJECT_DIR = extras\Build\juceaide\CMakeFiles\juceaide.dir
   OBJECT_FILE_DIR = extras\Build\juceaide\CMakeFiles\juceaide.dir\__\__\__\modules\juce_core
@@ -285,7 +285,7 @@ build extras\Build\juceaide\CMakeFiles\juceaide.dir\__\__\__\modules\juce_core\j
 
 build extras\Build\juceaide\CMakeFiles\juceaide.dir\__\__\__\modules\juce_data_structures\juce_data_structures.cpp.obj: CXX_COMPILER__juceaide_Debug ..\..\..\..\modules\juce_data_structures\juce_data_structures.cpp || cmake_object_order_depends_target_juceaide
   DEFINES = -DDEBUG=1 -DJUCE_DISABLE_JUCE_VERSION_PRINTING=1 -DJUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1 -DJUCE_MODULE_AVAILABLE_juce_build_tools=1 -DJUCE_MODULE_AVAILABLE_juce_core=1 -DJUCE_MODULE_AVAILABLE_juce_data_structures=1 -DJUCE_MODULE_AVAILABLE_juce_events=1 -DJUCE_MODULE_AVAILABLE_juce_graphics=1 -DJUCE_MODULE_AVAILABLE_juce_gui_basics=1 -DJUCE_STANDALONE_APPLICATION=1 -DJUCE_USE_CURL=0 -D_CONSOLE=1 -D_DEBUG=1
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -MTd /bigobj /Od /MP /EHsc /W4
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -MTd /bigobj /Od /Zi /MP /EHsc /W4
   INCLUDES = -Iextras\Build\juceaide\juceaide_artefacts\JuceLibraryCode -I..\..\..\..\extras\Build -I..\..\..\..\modules
   OBJECT_DIR = extras\Build\juceaide\CMakeFiles\juceaide.dir
   OBJECT_FILE_DIR = extras\Build\juceaide\CMakeFiles\juceaide.dir\__\__\__\modules\juce_data_structures

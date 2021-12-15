@@ -527,7 +527,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Users/Public/git-repos/Juce/out/install/x64-Debug"
+			"value" : "C:/Users/Public/git-repos/JUCE/out/install/x64-Debug"
 		},
 		{
 			"name" : "CMAKE_LINKER",
@@ -723,7 +723,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "6.1.2"
+			"value" : "6.1.3"
 		},
 		{
 			"name" : "CMAKE_PROJECT_VERSION_MAJOR",
@@ -759,7 +759,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "2"
+			"value" : "3"
 		},
 		{
 			"name" : "CMAKE_PROJECT_VERSION_TWEAK",
