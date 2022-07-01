@@ -597,6 +597,8 @@ public:
 
     auto* getNextChannelBuffer() { return buffer.getWritePointer (channelCounter++); }
 
+auto getArrayOfWritePointers() { return buffer.getArrayOfWritePointers(); }
+
 private:
     AudioBuffer<FloatType> buffer;
     int channelCounter = 0;
@@ -673,8 +675,11 @@ public:
         setUpInputChannels (data, (size_t) vstInputs, scratchBuffer, inputMap,  channels);
         setUpOutputChannels (scratchBuffer, outputMap, channels);
 
-        return { channels.data(), (int) channels.size(), (int) data.numSamples };
-    }
+        const auto channelPtr = channels.empty() ? scratchBuffer.getArrayOfWritePointers()
+                                                 : channels.data();
+
+        return { channelPtr, (int) channels.size(), (int) data.numSamples };
+	}
 
 private:
     static void setUpInputChannels (Steinberg::Vst::ProcessData& data,
